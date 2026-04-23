@@ -1,0 +1,25 @@
+name: Automação Diária de Ponto
+
+on:
+  schedule:
+    # Executa às 10:00 UTC (07:00 BRT) e 20:00 UTC (17:00 BRT) todos os dias
+    - cron: '0 10,20 * * *'
+  workflow_dispatch: # Permite que você rode manualmente pelo celular também
+
+jobs:
+  ponto:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Instalar Dependencias
+        run: |
+          pip install playwright
+          playwright install chromium
+      - name: Executar Script
+        env:
+          SITE_USUARIO: ${{ secrets.SITE_USUARIO }}
+          SITE_SENHA: ${{ secrets.SITE_SENHA }}
+        run: python script.py
