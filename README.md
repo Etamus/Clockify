@@ -1,4 +1,4 @@
-# Clockify
+# Autoclockin
 
 Este projeto consiste em uma automação desenvolvida em Python utilizando a biblioteca Playwright para interação com sistemas web baseados em Blazor (MudBlazor). O objetivo é realizar o login, navegação por menus e acionamento de botões de forma autônoma, simulando o comportamento humano e coordenadas geográficas específicas.
 
