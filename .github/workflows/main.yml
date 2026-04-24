@@ -3,7 +3,7 @@ name: Automação Diária de Ponto
 on:
   schedule:
     # Executa às 10:00 UTC (07:00 BRT) e 20:00 UTC (17:00 BRT) todos os dias
-    - cron: '0 10,20 * * *'
+    - cron: '0 10,20 * * 1-5'
   workflow_dispatch: # Permite que você rode manualmente pelo celular também
 
 jobs:
