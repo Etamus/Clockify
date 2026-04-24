@@ -2,9 +2,10 @@ name: Automação Diária de Ponto
 
 on:
   schedule:
-    # Executa às 10:00 UTC (07:00 BRT) e 20:00 UTC (17:00 BRT) todos os dias
-    - cron: '0 10,20 * * 1-5'
-  workflow_dispatch: # Permite que você rode manualmente pelo celular também
+    # Acorda às 09:40 UTC (06:40 BRT) e 19:40 UTC (16:40 BRT) de seg a sex
+    # Acordamos 20 minutos antes para absorver qualquer atraso dos servidores do GitHub
+    - cron: '40 9,19 * * 1-5'
+  workflow_dispatch: 
 
 jobs:
   ponto:
@@ -16,7 +17,7 @@ jobs:
           python-version: '3.11'
       - name: Instalar Dependencias
         run: |
-          pip install playwright
+          pip install playwright tzdata
           playwright install chromium
       - name: Executar Script
         env:
