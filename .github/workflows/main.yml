@@ -18,7 +18,7 @@ jobs:
       - name: Instalar Dependencias
         run: |
           pip install playwright tzdata
-          playwright install chromium
+          playwright install --with-deps chromium
       - name: Executar Script
         env:
           SITE_USUARIO: ${{ secrets.SITE_USUARIO }}
